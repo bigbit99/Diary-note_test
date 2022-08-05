@@ -42,21 +42,12 @@ function Diary_write() {
             
         </div>
         <button onClick={()=>{
-            dispatch(addUser({id:0,
-             name,
-             username,com
-             }))}}>Add</button>
-        <dic>
-            {userList.map((user) => {
-                return (
-                    <div >
-                        <h1>{user.name}</h1>
-                        <h1>{user.username}</h1>
-                        <h1>{user.com}</h1>
-                    </div>
-                );
-            })}
-        </dic>
+            dispatch(addUser({
+            id: userList[userList.length - 1].id + 1,
+            name,
+            username,com
+            })
+        )}}>Add</button>
             
     </div>
     )
