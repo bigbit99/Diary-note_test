@@ -5,7 +5,7 @@ import DiaryWrite from "./pages/DiaryWrite";
 import DiaryWriteAll from "./pages/DiaryWriteAll";
 import DiaryDetail from "./pages/DiaryDetail";
 import DiaryComment from "./pages/DiaryComment";
-import NotFound from "./pages/NotFound";
+import NotFound from "./redux/NotFound";
 import Links from "./components/Links";
 import Header from "./components/Header";
 
