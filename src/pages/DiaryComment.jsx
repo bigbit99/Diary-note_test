@@ -5,13 +5,14 @@ import {useSelector} from "react-redux"
 
 function Diary_writeAll() {
 
-   let comments = useSelector((state)=>{ return state})
-    console.log(comments)
+    let comments = useSelector((state)=>{ return state.cmts})
+    console.log(comments[0])
+
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState(""); 
          
-    const addComent =  () => {
+    const addComment =  () => {
         return(console.log(1));
     }
 
@@ -21,16 +22,13 @@ function Diary_writeAll() {
             <br/>
             <input placeholder="이름(5자 이내)" type="text" value={title} onChange={(e)=>{setTitle(e.target.value)}} /> 
             <input placeholder="댓글을 추가하세요.(100자 이내)" type="text" value={content} onChange={(e)=> {setContent(e.target.value)}} />
-            <Button onClick={addComent}>추가하기</Button>
+            <Button onClick={addComment}>추가하기</Button>
             <br/>
             <br/>
             <div id="cards">                    
                 {comments.map((comment) => (
-                <div><span ket={comment.id}>{comment.title}</span><br/> <span>{comment.content}</span></div>    
+                    <><span key={comment.id}>{comment.title}</span><br/><span>{comment.content}</span><br/></>
                 ))}
-                <th>key: 1</th>
-                <th>제목</th>
-                <th>내용</th>                  
             </div>
         </div>
     );
