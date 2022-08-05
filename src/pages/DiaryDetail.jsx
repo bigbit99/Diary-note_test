@@ -15,6 +15,7 @@ function Diary_writeAll() {
                 <p>제목보여주기:title</p>
                 <p>내용보여주기:content</p>
                 <button>수정하기</button>
+                <button>수정하기2</button>
             </div>
         </div>
     )
