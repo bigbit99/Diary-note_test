@@ -19,8 +19,11 @@ let cmtSlice = createSlice({
       addComment: (state, action)=>{
         state = [state.push(action.payload)]
       },
-    },
-});
+      
+      delComment: (state, action)=>{
+        console.log(state)
+      }
+    }})
 
 
 const store = configureStore({
