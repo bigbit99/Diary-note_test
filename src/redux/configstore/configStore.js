@@ -1,13 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-// import {diary, counter} from "./modules/detailSlice";
-// import counter from "./modules/detailSlice";
-import diaryReducer from '../modules/detailSlice';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import  userReducer from "./Users";
 
-const store = configureStore({
-  reducer: {
-		diary: diaryReducer,
-
-  },
-});
+const rootReducer = combineReducers({ userReducer });
+const store = configureStore({reducer: rootReducer});
 
 export default store;
+
+
+
+
+

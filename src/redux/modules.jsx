@@ -1,24 +1,22 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+// import { createSlice, current } from '@reduxjs/toolkit'
 
 
-let cmts = createSlice({
-    name : 'comments',
-    initialState : [{
-        id : 1,
-        title : "리덕스",
-        content : "내용을 써보자"
-        },
+// let cmtSlice = createSlice({
+    
+//     reducers : {      
+//       addComment: (state, action)=>{
+//         state = state.push(action.payload)
+//       }, 
 
-        { id : 2,
-        title : "과제",
-        content : "일기를 만들자"
-        }
-    ]
-})
+//       delComment: (state, action)=>{
+//         const newDelCmt = current(state).filter((del)=> 
+//        {return del.id !== action.payload}
+//        )
+//        return newDelCmt
+//       }
+//     }
+//   });
 
 
-export default configureStore({
-  reducer: { 
-    cmts : cmts.reducer
-   }
-}) 
+
+// export const { addComment, delComment, changeComment } = cmtSlice.actions;

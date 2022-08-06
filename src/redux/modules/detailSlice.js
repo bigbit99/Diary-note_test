@@ -12,7 +12,7 @@ const initialState = {
 
 export const diarySlice = createSlice({ //createSlice는 객체를 매개변수로 받는다
   name:"diary",
-  initialState,
+  initialState: initialState,
   reducers: {
      //리듀서 안에 만든 함수 자체가 리듀서 로직이가, action creator가 된다! 
     getDiary(state, action) {
