@@ -1,8 +1,9 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 
-let cmts = createSlice({
-    name : 'comments',
+
+let cmtSlice = createSlice({
+    name : 'cmtSlice',
     initialState : [{
         id : 1,
         title : "리덕스",
@@ -12,13 +13,22 @@ let cmts = createSlice({
         { id : 2,
         title : "과제",
         content : "일기를 만들자"
-        }
-    ]
-})
+        },
+    ],
+    reducers:{      
+      addComment: (state, action)=>{
+        state = [state.push(action.payload)]
+      },
+    },
+});
 
 
-export default configureStore({
+const store = configureStore({
   reducer: { 
-    cmts : cmts.reducer
-   }
+     cmt : cmtSlice.reducer
+    }
+   
 }) 
+
+export const { addComment } = cmtSlice.actions;
+export default store;
