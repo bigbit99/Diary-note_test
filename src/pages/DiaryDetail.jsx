@@ -29,11 +29,9 @@ function Diary_writeAll() {
                             <p>{diary.id}</p>
                             <p>{diary.title}</p>
                             <p>{diary.body}</p>
-                            
                             {/* (<button 
                                 type="button"
                                 onClick={()=>{onClickEditBtn}}>수정</button>) */}
-
                             <button>저장</button>
                         
                         </>
