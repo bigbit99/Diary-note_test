@@ -1,20 +1,28 @@
 import React, { useState }  from "react";
 import {useSelector, useDispatch} from "react-redux";
-import { addComment } from "../redux/modules";
+import { addComment, delComment, changeComment } from "../redux/modules";
+import styled from "styled-components";
 
 
 
 function Diary_writeAll() {
 
     const comments = useSelector((state)=> state.cmt)
-    console.log(comments)
-
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState(""); 
     const dispatch = useDispatch();
-         
 
+    
+    
+    const StyledBox = styled.div`
+        width: 600px;
+        height: 200px;
+        background-color: wheat;
+        border: 1px solid black;
+        text-align: center;
+    `;
+    
 
     return (
         <div>
@@ -27,12 +35,18 @@ function Diary_writeAll() {
             <br/>
             <div id="cards">                    
                 {comments.map((comment) => {return(
-                    <div key={comment.id}><h1>{comment.title}</h1><br/><h1>{comment.content}</h1><br/></div>
+                    <><div key={comment.id}><h2>{comment.title}</h2><span>{comment.content}</span>
+                        <button onClick={() => dispatch(delComment(comment.id))}>삭제</button>
+                        <button onClick>수정</button></div><br />
+                    <StyledBox><input type='text'></input><button onClick={() => dispatch(changeComment({id : comment.id, content : comment.content}))}>완료</button></StyledBox> </>
                 )})}
             </div>
         </div>
     );
+
 };
+
+
 
 
 export default  Diary_writeAll

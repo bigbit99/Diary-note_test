@@ -1,5 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
-
+import { configureStore, createSlice, current } from '@reduxjs/toolkit'
 
 
 let cmtSlice = createSlice({
@@ -15,15 +14,19 @@ let cmtSlice = createSlice({
         content : "일기를 만들자"
         },
     ],
-    reducers:{      
+    reducers : {      
       addComment: (state, action)=>{
-        state = [state.push(action.payload)]
-      },
-      
+        state = state.push(action.payload)
+      }, 
+
       delComment: (state, action)=>{
-        console.log(state)
+        const newDelCmt = current(state).filter((del)=> 
+       {return del.id !== action.payload}
+       )
+       return newDelCmt
       }
-    }})
+    }
+  });
 
 
 const store = configureStore({
@@ -33,5 +36,5 @@ const store = configureStore({
    
 }) 
 
-export const { addComment } = cmtSlice.actions;
+export const { addComment, delComment, changeComment } = cmtSlice.actions;
 export default store;
