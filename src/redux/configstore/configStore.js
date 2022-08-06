@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counter from "../modules/diarydetail";
+// import {diary, counter} from "./modules/detailSlice";
+// import counter from "./modules/detailSlice";
+import diaryReducer from '../modules/detailSlice';
 
 const store = configureStore({
   reducer: {
-		counter,
+		diary: diaryReducer,
+
   },
 });
 
